@@ -35,7 +35,7 @@ The application follows these steps to extract and highlight details from your i
 - **Interactive UI**: Built with Streamlit for an easy-to-use, responsive interface.
 - **Cohere AI Integration**: Leverages Cohere's language model for accurate and efficient data extraction.
 
-![Demo 3: Extracted Invoice Data](img/invoicepic3.png)
+![Demo 3: Extracted Invoice Data](img/invoicpic3.png)
 
 ## 🌟Requirements
 
