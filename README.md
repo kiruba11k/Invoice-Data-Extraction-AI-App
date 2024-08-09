@@ -10,7 +10,7 @@ The Invoice Data Extraction AI App is a Streamlit-based web application designed
 [Launch App On Streamlit](https://invoiceaixtract.streamlit.app/)
 
 ## 💻 Demo:
-![Demo 1: Invoice Data Extraction Output](img/invoice1.jpg)
+![Demo 1: Invoice Data Extraction Output](img/invoice1.png)
 
 ## 🎯 How It Works:
 ------------
@@ -24,7 +24,7 @@ The application follows these steps to extract and highlight details from your i
 
 3. **Structured Display** : The extracted information is then structured and highlighted with custom styling to ensure clarity and readability.
 
-![Demo 2: Invoice Data Extraction Output](img/invoice2.jpg)
+![Demo 2: Invoice Data Extraction Output](img/invoice2.png)
 
 --- 
 ## 🎯 Key Features
@@ -35,7 +35,7 @@ The application follows these steps to extract and highlight details from your i
 - **Interactive UI**: Built with Streamlit for an easy-to-use, responsive interface.
 - **Cohere AI Integration**: Leverages Cohere's language model for accurate and efficient data extraction.
 
-![Demo 3: Extracted Invoice Data](img/invoice3.jpg)
+![Demo 3: Extracted Invoice Data](img/invoice3.png)
 
 ## 🌟Requirements
 
