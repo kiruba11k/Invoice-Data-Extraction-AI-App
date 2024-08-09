@@ -64,6 +64,8 @@ def extract_text_from_pdf(pdf_path):
     return text
 
 
+pytesseract.pytesseract.tesseract_cmd = "/usr/bin/tesseract"
+
 def extract_text_from_image(image):
     """Extract text from the given image using OCR."""
     text = pytesseract.image_to_string(image)
