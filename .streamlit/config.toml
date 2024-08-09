@@ -1,0 +1,17 @@
+[server]
+headless = true
+port = $PORT
+enableCORS = false
+[server.encryption]
+type = "none"
+
+[general]
+scriptExecutionTimeout = 300
+
+[global]
+useNode = true
+
+[runner]
+magicEnabled = true
+scriptRunner = "true"
+installCommand = "./setup.sh"
