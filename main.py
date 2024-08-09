@@ -1,5 +1,7 @@
 import streamlit as st
 import pdfplumber
+from PIL import Image
+import pytesseract
 import cohere
 
 # Cohere API Key
@@ -54,14 +56,24 @@ st.markdown(
 )
 
 def extract_text_from_pdf(pdf_path):
+    """Extract text from the given PDF file."""
     with pdfplumber.open(pdf_path) as pdf:
         text = ''
         for page in pdf.pages:
             text += page.extract_text()
     return text
 
+
+pytesseract.pytesseract.tesseract_cmd = r'D:\SoftwareFiles\Tesseract-OCR\tesseract.exe'
+
+
+def extract_text_from_image(image):
+    """Extract text from the given image using OCR."""
+    text = pytesseract.image_to_string(image)
+    return text
+
 def extract_details(text):
-    # Ask Cohere to extract customer details, products, and total amount
+    """Extract customer details, products, and total amount using Cohere API."""
     response = co.generate(
         model='command-xlarge-nightly',
         prompt=f"Extract customer details, products, and total amount from this invoice:\n{text}",
@@ -70,13 +82,19 @@ def extract_details(text):
     return response.generations[0].text.strip()
 
 def main():
+    """Main function to handle Streamlit app logic."""
     st.title("Invoice Data Extraction")
 
-    # Upload PDF
-    pdf_file = st.file_uploader("Upload Invoice PDF", type="pdf")
+    # File uploader for PDF and Image
+    uploaded_file = st.file_uploader("Upload Invoice (PDF or Image)", type=["pdf", "jpg", "jpeg", "png"])
 
-    if pdf_file:
-        text = extract_text_from_pdf(pdf_file)
+    if uploaded_file:
+        if uploaded_file.type == "application/pdf":
+            text = extract_text_from_pdf(uploaded_file)
+        else:
+            image = Image.open(uploaded_file)
+            text = extract_text_from_image(image)
+
         details = extract_details(text)
         st.subheader("Extracted Details")
         st.write(details)
